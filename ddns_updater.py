@@ -87,8 +87,10 @@ def update_dns_ip(raise_for_status: bool = True, **secrets):
     if record.content != pub_ip_info["ip"]:
         # Our public IP has changed & Cloudflare DNS record needs to be updated
         return cloudflare_client.dns.records.update(
+            ttl=record.ttl,
             name=record.name,
             type=record.type,
+            proxied=record.proxied,
             dns_record_id=record.id,
             content=pub_ip_info["ip"],  # set new IP
             zone_id=secrets["ZONE_ID"],
