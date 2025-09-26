@@ -31,7 +31,7 @@ def get_public_ip(raise_for_status: bool = True):
 
     Returns:
         dict: JSON response containing IP address information. Typically includes
-              keys like 'ip', 'country', 'city', etc.
+              keys like 'ip', 'country', 'city'
 
     Raises:
         requests.exceptions.HTTPError: If raise_for_status is True and the server returns
